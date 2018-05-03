@@ -545,7 +545,7 @@ end)
 
 RegisterServerEvent("robberies:policeCheck")
 AddEventHandler("robberies:policeCheck", function()
-	TriggerEvent('f:getPlayers', function(players)
+	TriggerEvent('es:getPlayers', function(players)
 		local nbPolice = 0
 		for i,p in pairs(players) do
 			if p.getSessionVar('policeInService') == true then
