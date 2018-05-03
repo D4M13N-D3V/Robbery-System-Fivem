@@ -1,4 +1,17 @@
+--[[ Layout
 
+
+
+	["Name"]={name="Name",
+	currentMoney=500, -- starting money
+	maxMoney=5000, -- maximum money the store can hold
+	moneyRengerationRate=100, -- how much money is gained Per Minute
+	takesMoneyToBankOnMax=true, -- If the place transfers money to bank every 30 minutes
+	isBank=false, -- is the place a bank
+	bankToDeliverToo="Legion Flecca Bank Vault", -- what bank to deliver to if the takesMoenyToBank is true
+	},
+
+]]
 robbableSpots = {
 	["Little Soul 24/7 Register #1"]={name="Little Soul 24/7 Register #1",
 	currentMoney=500,

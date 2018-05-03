@@ -3,6 +3,7 @@
 --[[ CONFIG ]]--
 useCopsFiveM = true -- If you have cops FiveM you should enable this,  lets the script do cop checks
 copsNeededPerRobbery = 2 --So you can only have 2 goingoing robberys if you have 4 cops on instead of 4 , 1 person robberies. Can change this to any number thats 1 or above
+local keyToInteractWithRobbery = Keys["E"]
 --[[--------]]
 
 --[[LAYOUT
@@ -609,8 +610,6 @@ local Keys = {
 
 local distanceForMarkerToShow = 15
 local distanceToInteractWithMarker = 1.5
-
-local keyToInteractWithRobbery = Keys["E"]
 
 local inCircle=false
 local isRobbing=false
