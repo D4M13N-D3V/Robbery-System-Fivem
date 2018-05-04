@@ -538,6 +538,28 @@ AddEventHandler("robberies:robberyOver", function(name)
 	end)
 end)
 
+RegisterServerEvent("robberies:robberyOverNotification")
+AddEventHandler("robberies:robberyOverNotification", function(name)
+	TriggerEvent('es:getPlayers', function(players)
+		for i,p in pairs(players) do
+			if p.getSessionVar('policeInService') == true then
+				TriggerClientEvent("robberies:robberyOverNotification",i, name)
+			end
+		end
+	end)
+end)
+
+RegisterServerEvent("robberies:robberyStartedNotification")
+AddEventHandler("robberies:robberyStartedNotification", function(name)
+	TriggerEvent('es:getPlayers', function(players)
+		for i,p in pairs(players) do
+			if p.getSessionVar('policeInService') == true then
+				TriggerClientEvent("robberies:robberyStartedNotification", i, name)
+			end
+		end
+	end)
+end)
+
 RegisterServerEvent("robberies:syncSpots")
 AddEventHandler("robberies:syncSpots", function(spots)
 	TriggerClientEvent("robberies:syncSpotsClient", -1, spots)
