@@ -19,13 +19,13 @@ local keyToInteractWithRobbery = Keys["E"]
 
 	["Name Of Store"]={name="Name Of Store",
 	blip=500,  -- THE BLIP TO USE
-	blipColor=6,  -- THE COLOR OF SAID BLIP
-	blipSize=0.6, -- THE SIZE OF SAID BLIP
-	x=-706.03717041016, y=-915.42755126953, z=19.215593338013, -- THE POSISTION OF THE PLACE
-	beingRobbed=false, -- IF ITS BEING ROBBED
+	blipColor=6,  -- THE COLOR OF BLIP
+	blipSize=0.6, -- THE SIZE OF BLIP
+	x=-706.03717041016, y=-915.42755126953, z=19.215593338013, -- THE POSITION OF THE PLACE
+	beingRobbed=false, -- IF IT'S BEING ROBBED
 	timeToRob = 90, --HOW LONG IT TAKES TO ROB
 	isSafe=false, --IF ITS A SAFE OR A REGISTER/BOOTH
-	copsNeeded = 1}, -- HOW MANY COPS ARE RQUIRED TO ROB THIS ONE
+	copsNeeded = 1}, -- HOW MANY COPS ARE REQUIRED TO ROB THIS ONE
 
 ]]
 
@@ -34,7 +34,7 @@ local keyToInteractWithRobbery = Keys["E"]
 local robbableSpots = {
 
 --24/7s
-	["Little Soul 24/7 Register #1"]={name="Little Soul 24/7 Register #1",
+	["Little Seoul 24/7 Register #1"]={name="Little Seoul 24/7 Register #1",
 	blip=500,
 	blipColor=6,
 	blipSize=0.6,
@@ -44,7 +44,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
-	["Little Soul 24/7 Register #2"]={name="Little Soul 24/7 Register #2",
+	["Little Seoul 24/7 Register #2"]={name="Little Seoul 24/7 Register #2",
 	blip=500,
 	blipColor=6,
 	blipSize=0.6,
@@ -54,7 +54,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
-	["Little Soul 24/7 Safe"]={name="Little Soul 24/7 Safe",
+	["Little Seoul 24/7 Safe"]={name="Little Seoul 24/7 Safe",
 	blip=500,
 	blipColor=6,
 	blipSize=0.8,
@@ -306,7 +306,7 @@ local robbableSpots = {
 
 
 
-	["Alogonquin 24/7 Register"]={name="Alogonquin 24/7 Register",
+	["Algonquin 24/7 Register"]={name="Algonquin 24/7 Register",
 	blip=500,
 	blipColor=6,
 	blipSize=0.8,
@@ -321,7 +321,7 @@ local robbableSpots = {
 
 
 
-	["Route 68 Liquior Store Register"]={name="Route 68 Liquior Store Register",
+	["Route 68 Liquor Store Register"]={name="Route 68 Liquor Store Register",
 	blip=500,
 	blipColor=6,
 	blipSize=0.6,
@@ -331,7 +331,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
-	["Route 68 Liquior Store Safe"]={name="Route 68 Liquior Store Safe",
+	["Route 68 Liquor Store Safe"]={name="Route 68 Liquor Store Safe",
 	blip=500,
 	blipColor=6,
 	blipSize=0.8,
@@ -341,7 +341,7 @@ local robbableSpots = {
 	isSafe=true,
 	copsNeeded = 2},
 
-	["El Rancho Blvd Liquior Store Register"]={name="El Rancho Blvd Liquior Store Register",
+	["El Rancho Blvd Liquor Store Register"]={name="El Rancho Blvd Liquor Store Register",
 	blip=500,
 	blipColor=6,
 	blipSize=0.6,
@@ -351,7 +351,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
-	["El Rancho Blvd Liquior Store Safe"]={name="El Rancho Blvd Liquior Store Safe",
+	["El Rancho Blvd Liquor Store Safe"]={name="El Rancho Blvd Liquor Store Safe",
 	blip=500,
 	blipColor=6,
 	blipSize=0.8,
@@ -361,7 +361,7 @@ local robbableSpots = {
 	isSafe=true,
 	copsNeeded = 2},
 
-	["Prosperity Liquior Store Register"]={name="Prosperity Liquior Store Register",
+	["Prosperity Liquor Store Register"]={name="Prosperity Liquor Store Register",
 	blip=500,
 	blipColor=6,
 	blipSize=0.6,
@@ -371,7 +371,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
-	["Prosperity Liquior Store Safe"]={name="Prosperity Liquior Store Safe",
+	["Prosperity Liquor Store Safe"]={name="Prosperity Liquor Store Safe",
 	blip=500,
 	blipColor=6,
 	blipSize=0.8,
@@ -381,7 +381,7 @@ local robbableSpots = {
 	isSafe=true,
 	copsNeeded = 2},
 
-	["Great Ocean Hwy Liquior Store Register"]={name="Great Ocean Hwy Liquior Store Register",
+	["Great Ocean Hwy Liquor Store Register"]={name="Great Ocean Hwy Liquor Store Register",
 	blip=500,
 	blipColor=6,
 	blipSize=0.6,
@@ -391,7 +391,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
-	["Great Ocean Hwy Liquior Store Safe"]={name="Great Ocean Hwy Liquior Store Safe",
+	["Great Ocean Hwy Liquor Store Safe"]={name="Great Ocean Hwy Liquor Store Safe",
 	blip=500,
 	blipColor=6,
 	blipSize=0.8,
