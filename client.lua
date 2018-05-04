@@ -11,8 +11,7 @@ local Keys = {
 }
 
 --[[ CONFIG ]]--
-useCopsFiveM = true -- If you have cops FiveM you should enable this, this allows the script to detect active police.
-copsNeededPerRobbery = 2 -- This value allows you to change the amount of robberies that can occur at the same time depending on the amount of active police.
+useCopsFiveM = true -- If you have cops FiveM you should enable this,  lets the script do cop checks
 local keyToInteractWithRobbery = Keys["E"]
 --[[--------]]
 
@@ -674,14 +673,8 @@ AddEventHandler("robberies:StartRobbery", function(cops)
 	end
 
 	Citizen.CreateThread(function()
-		if(cops/2>=spotBeingRobbed.copsNeeded)then
-			TriggerEvent("pNotify:SendNotification", {
-				text = "10-90 : Silent alarm has been triggered! ( "..spotBeingRobbed.name.." )",
-				type = "warning",
-				timeout = 10000,
-				layout = "centerRight",
-				queue = "right"
-    		})
+		if(cops>=spotBeingRobbed.copsNeeded)then
+			TriggerServerEvent("robberies:robberyStartedNotification", spotBeingRobbed.name)
 			TaskPlayAnim(GetPlayerPed(-1),"mini@repair","fixing_a_player", 8.0, 0.0, -1, 1, 0, 0, 0, 0)     
 			isRobbing=true
 			spotBeingRobbed.beingRobbed=true
@@ -712,21 +705,14 @@ end)
 
 RegisterNetEvent("robberies:syncSpotsClient")
 AddEventHandler("robberies:syncSpotsClient", function(spots)
-	print("synced")
 	robbableSpots=spots
 end)
 
 function StopRobbery()
-	TriggerEvent("pNotify:SendNotification", {
-		text = "10-90 : Someone was seen fleeing from the scene of the robbery! ( "..spotBeingRobbed.name.." )",
-		type = "warning",
-		timeout = 10000,
-		layout = "centerRight",
-		queue = "right"
-    		})
 	isRobbing=false
 	spotBeingRobbed.beingRobbed=false
 	robbableSpots[spotBeingRobbed.name]=spotBeingRobbed
+	TriggerServerEvent("robberies:robberyOverNotification", spotBeingRobbed.name)
 	TriggerServerEvent("robberies:syncSpots", robbableSpots)
 	spotBeingRobbed=nil
 	FreezeEntityPosition(GetPlayerPed(-1), false)
@@ -744,3 +730,26 @@ function DisplayHelpText(str)
 	AddTextComponentString(str)
 	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 end
+
+
+RegisterNetEvent("robberies:robberyOverNotification")
+AddEventHandler("robberies:robberyOverNotification", function(name)
+		TriggerEvent("pNotify:SendNotification", {
+			text = "10-90 : Somebody was seen fleeing the area ( "..name.." )",
+			type = "warning",
+			timeout = 10000,
+			layout = "centerRight",
+			queue = "right"
+   		})
+end)
+
+RegisterNetEvent("robberies:robberyStartedNotification")
+AddEventHandler("robberies:robberyStartedNotification", function(name)
+		TriggerEvent("pNotify:SendNotification", {
+			text = "10-90 : A silent alarm has been triggered ( "..name.." )",
+			type = "warning",
+			timeout = 10000,
+			layout = "centerRight",
+			queue = "right"
+    	})
+end)

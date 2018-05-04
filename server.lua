@@ -13,7 +13,7 @@
 
 ]]
 robbableSpots = {
-	["Little Soul 24/7 Register #1"]={name="Little Soul 24/7 Register #1",
+	["Little Seoul 24/7 Register #1"]={name="Little Seoul 24/7 Register #1",
 	currentMoney=500,
 	maxMoney=5000,
 	moneyRengerationRate=100, -- Per Minute
@@ -22,7 +22,7 @@ robbableSpots = {
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
 
-	["Little Soul 24/7 Register #2"]={name="Little Soul 24/7 Register #2",
+	["Little Seoul 24/7 Register #2"]={name="Little Seoul 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
 	moneyRengerationRate=100, -- Per Minute
@@ -31,7 +31,7 @@ robbableSpots = {
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
 
-	["Little Soul 24/7 Safe"]={name="Little Soul 24/7 Safe",
+	["Little Seoul 24/7 Safe"]={name="Little Seoul 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
 	moneyRengerationRate=350, -- Per Minute
@@ -305,7 +305,7 @@ robbableSpots = {
 
 
 
-	["Prosperity Liquior Store Register"]={name="Prosperity Liquior Store Register",
+	["Prosperity Liquor Store Register"]={name="Prosperity Liquor Store Register",
 	currentMoney=500,
 	maxMoney=5000,
 	moneyRengerationRate=200, -- Per Minute
@@ -313,7 +313,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
-	["Prosperity Liquior Store Safe"]={name="Prosperity Liquior Store Safe",
+	["Prosperity Liquor Store Safe"]={name="Prosperity Liquor Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
 	moneyRengerationRate=100, -- Per Minute
@@ -322,7 +322,7 @@ robbableSpots = {
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
 
-	["El Rancho Blvd Liquior Store Register"]={name="El Rancho Blvd Liquior Store Register",
+	["El Rancho Blvd Liquor Store Register"]={name="El Rancho Blvd Liquor Store Register",
 	currentMoney=500,
 	maxMoney=5000,
 	moneyRengerationRate=200, -- Per Minute
@@ -330,7 +330,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
-	["El Rancho Blvd Liquior Store Safe"]={name="El Rancho Blvd Liquior Store Safe",
+	["El Rancho Blvd Liquor Store Safe"]={name="El Rancho Blvd Liquor Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
 	moneyRengerationRate=100, -- Per Minute
@@ -339,7 +339,7 @@ robbableSpots = {
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
 
-	["Great Ocean Hwy Liquior Store Register"]={name="Great Ocean Hwy Liquior Store Register",
+	["Great Ocean Hwy Liquor Store Register"]={name="Great Ocean Hwy Liquor Store Register",
 	currentMoney=500,
 	maxMoney=5000,
 	moneyRengerationRate=200, -- Per Minute
@@ -347,7 +347,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Great Owean Hwy Flecca Bank Vault",
 	},
-	["Great Ocean Hwy Liquior Store Safe"]={name="Great Ocean Hwy Liquior Store Safe",
+	["Great Ocean Hwy Liquor Store Safe"]={name="Great Ocean Hwy Liquor Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
 	moneyRengerationRate=100, -- Per Minute
@@ -356,7 +356,7 @@ robbableSpots = {
 	bankToDeliverToo="Great Owean Hwy Flecca Bank Vault",
 	},
 
-	["Route 68 Liquior Store Register"]={name="Route 68 Liquior Store Register",
+	["Route 68 Liquor Store Register"]={name="Route 68 Liquor Store Register",
 	currentMoney=500,
 	maxMoney=5000,
 	moneyRengerationRate=200, -- Per Minute
@@ -534,6 +534,28 @@ AddEventHandler("robberies:robberyOver", function(name)
 		if(target)then
 			target.addMoney(robbableSpots[name].currentMoney) 
 			robbableSpots[name].currentMoney=0
+		end
+	end)
+end)
+
+RegisterServerEvent("robberies:robberyOverNotification")
+AddEventHandler("robberies:robberyOverNotification", function(name)
+	TriggerEvent('es:getPlayers', function(players)
+		for i,p in pairs(players) do
+			if p.getSessionVar('policeInService') == true then
+				TriggerClientEvent("robberies:robberyOverNotification",i, name)
+			end
+		end
+	end)
+end)
+
+RegisterServerEvent("robberies:robberyStartedNotification")
+AddEventHandler("robberies:robberyStartedNotification", function(name)
+	TriggerEvent('es:getPlayers', function(players)
+		for i,p in pairs(players) do
+			if p.getSessionVar('policeInService') == true then
+				TriggerClientEvent("robberies:robberyStartedNotification", i, name)
+			end
 		end
 	end)
 end)
