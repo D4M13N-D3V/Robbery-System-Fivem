@@ -664,34 +664,37 @@ AddEventHandler("robberies:StartRobbery", function(cops)
 	end
 
 	Citizen.CreateThread(function()
-		if(cops>=spotBeingRobbed.copsNeeded)then
-			TriggerServerEvent("robberies:robberyStartedNotification", spotBeingRobbed.name)
-			TaskPlayAnim(GetPlayerPed(-1),"mini@repair","fixing_a_player", 8.0, 0.0, -1, 1, 0, 0, 0, 0)     
-			isRobbing=true
-			spotBeingRobbed.beingRobbed=true
-			robbableSpots[spotBeingRobbed.name]=spotBeingRobbed
-			TriggerServerEvent("robberies:syncSpots", robbableSpots)
-			FreezeEntityPosition(GetPlayerPed(-1), true)
-					
-			local currentSecondCount = 0
-					
-			Citizen.CreateThread(function()
-				while isRobbing do
-					if(spotBeingRobbed.isSafe)then
-						DisplayHelpText("You are currently cracking the safe ("..spotBeingRobbed.timeToRob-currentSecondCount.." seconds left)")
-					else
-						DisplayHelpText("You are currently prying open the cash register ("..spotBeingRobbed.timeToRob-currentSecondCount.." seconds left)")
-					end
-					Citizen.Wait(0)
-				end
-			end)
+		TriggerServerEvent("robberies:robberyStartedNotification", spotBeingRobbed.name)
+		TaskPlayAnim(GetPlayerPed(-1),"mini@repair","fixing_a_player", 8.0, 0.0, -1, 1, 0, 0, 0, 0)     
+		
+		SetPlayerWantedLevel(PlayerId(), 2, false)
+		Citizen.Wait(1)
+		SetPlayerWantedLevelNow(PlayerId(), false)
+		
+		isRobbing=true
+		spotBeingRobbed.beingRobbed=true
+		robbableSpots[spotBeingRobbed.name]=spotBeingRobbed
+		TriggerServerEvent("robberies:syncSpots", robbableSpots)
+		FreezeEntityPosition(GetPlayerPed(-1), true)
+
+		local currentSecondCount = 0
+
+		Citizen.CreateThread(function()
 			while isRobbing do
-				currentSecondCount = currentSecondCount + 1
-				if(currentSecondCount==spotBeingRobbed.timeToRob)then
-					RobberyOver()
+				if(spotBeingRobbed.isSafe)then
+					DisplayHelpText("You are currently cracking the safe ("..spotBeingRobbed.timeToRob-currentSecondCount.." seconds left)")
+				else
+					DisplayHelpText("You are currently prying open the cash register ("..spotBeingRobbed.timeToRob-currentSecondCount.." seconds left)")
 				end
-				Citizen.Wait(1000)
+				Citizen.Wait(0)
 			end
+		end)
+		while isRobbing do
+			currentSecondCount = currentSecondCount + 1
+			if(currentSecondCount==spotBeingRobbed.timeToRob)then
+				RobberyOver()
+			end
+			Citizen.Wait(1000)
 		end
 	end)
 end)
