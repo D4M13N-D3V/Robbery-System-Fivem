@@ -33,7 +33,8 @@ local keyToInteractWithRobbery = Keys["E"]
 
 local robbableSpots = {
 
---24/7s
+	--24/7s
+	
 	["Little Seoul 24/7 Register #1"]={name="Little Seoul 24/7 Register #1",
 	blip=500,
 	blipColor=6,
@@ -304,8 +305,6 @@ local robbableSpots = {
 	isSafe=true,
 	copsNeeded = 2},
 
-
-
 	["Algonquin 24/7 Register"]={name="Algonquin 24/7 Register",
 	blip=500,
 	blipColor=6,
@@ -317,9 +316,7 @@ local robbableSpots = {
 	copsNeeded = 2},
 
 
---LIQUIOR STORES
-
-
+	--LIQUOR STORES
 
 	["Route 68 Liquor Store Register"]={name="Route 68 Liquor Store Register",
 	blip=500,
@@ -401,12 +398,7 @@ local robbableSpots = {
 	isSafe=true,
 	copsNeeded = 2},
 
-
-
-
-
-
-
+	
 	--CLUBS 
 
 	["Bahama Mamas Cash Register #1"]={name="Bahama Mamas Cash Register #1",
@@ -489,7 +481,8 @@ local robbableSpots = {
 	isSafe=true,
 	copsNeeded = 2},
 
-	-- BANK BOOTHS
+	
+	--BANK BOOTHS
 
 	["Pacific Standard Bank Booth #1"]={name="Pacific Standard Bank Booth #1",
 	blip=500,
@@ -521,6 +514,7 @@ local robbableSpots = {
 	isSafe=false,
 	copsNeeded = 1},
 
+	
 	--BANKS
 
 	["Route 68 Flecca Bank Vault"]={name="Route 68 Flecca Bank Vault",
@@ -602,9 +596,7 @@ local robbableSpots = {
 	timeToRob = 900,
 	isSafe=true,
 	copsNeeded = 4},
-
 }
-
 
 
 local distanceForMarkerToShow = 15
@@ -617,14 +609,14 @@ local spotBeingRobbed = nil
 Citizen.CreateThread(function()
 	--Setup the blips for all the locations.
 	for name,robbableSpot in pairs(robbableSpots)do
-        local blip = AddBlipForCoord(robbableSpot.x,robbableSpot.y,robbableSpot.z)
-        SetBlipSprite(blip, robbableSpot.blip)
-        SetBlipColour(blip, robbableSpot.blipColor)
-        SetBlipScale(blip, robbableSpot.blipSize)
-        SetBlipAsShortRange(blip, true)
-        BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString(name)
-        EndTextCommandSetBlipName(blip)
+		local blip = AddBlipForCoord(robbableSpot.x,robbableSpot.y,robbableSpot.z)
+		SetBlipSprite(blip, robbableSpot.blip)
+		SetBlipColour(blip, robbableSpot.blipColor)
+		SetBlipScale(blip, robbableSpot.blipSize)
+		SetBlipAsShortRange(blip, true)
+		BeginTextCommandSetBlipName("STRING")
+		AddTextComponentString(name)
+		EndTextCommandSetBlipName(blip)
 	end
 	
 	while true do
@@ -661,7 +653,6 @@ end)
 
 RegisterNetEvent("robberies:StartRobbery")
 AddEventHandler("robberies:StartRobbery", function(cops)
-
 	local ongoingRobberies = 0
 	for i,v in ipairs(robbableSpots)do
 		if(v.beingRobbed)then
@@ -681,7 +672,9 @@ AddEventHandler("robberies:StartRobbery", function(cops)
 			robbableSpots[spotBeingRobbed.name]=spotBeingRobbed
 			TriggerServerEvent("robberies:syncSpots", robbableSpots)
 			FreezeEntityPosition(GetPlayerPed(-1), true)
+					
 			local currentSecondCount = 0
+					
 			Citizen.CreateThread(function()
 				while isRobbing do
 					if(spotBeingRobbed.isSafe)then
@@ -734,22 +727,22 @@ end
 
 RegisterNetEvent("robberies:robberyOverNotification")
 AddEventHandler("robberies:robberyOverNotification", function(name)
-		TriggerEvent("pNotify:SendNotification", {
-			text = "10-90 : Somebody was seen fleeing the area ( "..name.." )",
-			type = "warning",
-			timeout = 10000,
-			layout = "centerRight",
-			queue = "right"
-   		})
+	TriggerEvent("pNotify:SendNotification", {
+		text = "10-90 : Somebody was seen fleeing the area ( "..name.." )",
+		type = "warning",
+		timeout = 10000,
+		layout = "centerRight",
+		queue = "right"
+	})
 end)
 
 RegisterNetEvent("robberies:robberyStartedNotification")
 AddEventHandler("robberies:robberyStartedNotification", function(name)
-		TriggerEvent("pNotify:SendNotification", {
-			text = "10-90 : A silent alarm has been triggered ( "..name.." )",
-			type = "warning",
-			timeout = 10000,
-			layout = "centerRight",
-			queue = "right"
-    	})
+	TriggerEvent("pNotify:SendNotification", {
+		text = "10-90 : A silent alarm has been triggered ( "..name.." )",
+		type = "warning",
+		timeout = 10000,
+		layout = "centerRight",
+		queue = "right"
+	})
 end)
