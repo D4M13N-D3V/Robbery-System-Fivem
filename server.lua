@@ -1,7 +1,5 @@
 --[[ Layout
 
-
-
 	["Name"]={name="Name",
 	currentMoney=500, -- starting money
 	maxMoney=5000, -- maximum money the store can hold
@@ -12,7 +10,9 @@
 	},
 
 ]]
+
 robbableSpots = {
+	
 	["Little Seoul 24/7 Register #1"]={name="Little Seoul 24/7 Register #1",
 	currentMoney=500,
 	maxMoney=5000,
@@ -57,6 +57,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="East Hawick Flecca Bank Vault",
 	},
+	
 	["Mirror Park 24/7 Register #2"]={name="Mirror Park 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -65,6 +66,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="East Hawick Flecca Bank Vault",
 	},
+	
 	["Mirror Park 24/7 Safe"]={name="Mirror Park 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -82,6 +84,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Pacific Standard Bank Vault",
 	},
+	
 	["Downtown Vinewood 24/7 Register #2"]={name="Downtown Vinewood 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -90,6 +93,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Pacific Standard Bank Vault",
 	},
+	
 	["Downtown Vinewood 24/7 Safe"]={name="Downtown Vinewood 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -107,6 +111,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Grean Ocean Hwy Flecca Bank Vault",
 	},
+	
 	["Rockford Dr 24/7 Register #2"]={name="Rockford Dr 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -115,6 +120,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Grean Ocean Hwy Flecca Bank Vault",
 	},
+	
 	["Rockford Dr 24/7 Safe"]={name="Rockford Dr 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -132,6 +138,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Route 68 Flecca Bank Vault",
 	},
+	
 	["South Senora Fwy 24/7 Register #2"]={name="South Senora Fwy 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -140,6 +147,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Route 68 Flecca Bank Vault",
 	},
+	
 	["South Senora Fwy 24/7 Safe"]={name="South Senora Fwy 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -157,6 +165,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Blaine County Savings Vault",
 	},
+	
 	["North Senora Fwy 24/7 Register #2"]={name="North Senora Fwy 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -165,6 +174,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Blaine County Savings Vault",
 	},
+	
 	["North Senora Fwy 24/7 Safe"]={name="North Senora Fwy 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -182,6 +192,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Grean Ocean ",
 	},
+	
 	["Route 68 24/7 Register #2"]={name="Route 68 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -190,6 +201,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Grean Ocean ",
 	},
+	
 	["Route 68 24/7 Safe"]={name="Route 68 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -207,6 +219,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
+	
 	["Innocence Blvd 24/7 Register #2"]={name="Innocence Blvd 24/7 Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -215,6 +228,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
+	
 	["Innocence Blvd 24/7 Safe"]={name="Innocence Blvd 24/7 Safe",
 	currentMoney=2000,
 	maxMoney=25000,
@@ -235,6 +249,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
+	
 	["Bahama Mamas Cash Register #2"]={name="Bahama Mamas Cash Register #2",
 	currentMoney=500,
 	maxMoney=5000,
@@ -243,6 +258,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
+	
 	["Bahama Mamas Cash Register #3"]={name="Bahama Mamas Cash Register #3",
 	currentMoney=500,
 	maxMoney=5000,
@@ -251,6 +267,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
+	
 	["Bahama Mamas Cash Register #4"]={name="Bahama Mamas Cash Register #4",
 	currentMoney=500,
 	maxMoney=5000,
@@ -259,6 +276,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
+	
 	["Bahama Mamas Cash Register #5"]={name="Bahama Mamas Cash Register #5",
 	currentMoney=500,
 	maxMoney=5000,
@@ -267,6 +285,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
+	
 	["Bahama Mamas Cash Register #6"]={name="Bahama Mamas Cash Register #6",
 	currentMoney=500,
 	maxMoney=5000,
@@ -284,6 +303,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Pacific Standard Bank Vault",
 	},
+	
 	["Tequilala Safe"]={name="Tequilala Safe",
 	currentMoney=3000,
 	maxMoney=15000,
@@ -294,16 +314,7 @@ robbableSpots = {
 	},
 
 
-
-
-
-
-
-
-
---- LIQUIOR STORES
-
-
+	-- LIQUOR STORES
 
 	["Prosperity Liquor Store Register"]={name="Prosperity Liquor Store Register",
 	currentMoney=500,
@@ -313,6 +324,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="West Hawick Flecca Bank Vault",
 	},
+	
 	["Prosperity Liquor Store Safe"]={name="Prosperity Liquor Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
@@ -330,6 +342,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Legion Flecca Bank Vault",
 	},
+	
 	["El Rancho Blvd Liquor Store Safe"]={name="El Rancho Blvd Liquor Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
@@ -347,6 +360,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Great Owean Hwy Flecca Bank Vault",
 	},
+	
 	["Great Ocean Hwy Liquor Store Safe"]={name="Great Ocean Hwy Liquor Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
@@ -364,6 +378,7 @@ robbableSpots = {
 	isBank=false,
 	bankToDeliverToo="Route 68 Flecca Bank Vault",
 	},
+	
 	["Route 68 Liquior Store Safe"]={name="Route 68 Liquior Store Safe",
 	currentMoney=2000,
 	maxMoney=30000,
@@ -374,12 +389,7 @@ robbableSpots = {
 	},
 
 
-
-
-
-
-
--- bank booths
+	--BANK BOOTHS
 
 	["Pacific Standard Bank Booth #1"]={name="Pacific Standard Bank Booth #1",
 	currentMoney=250,
@@ -409,13 +419,7 @@ robbableSpots = {
 	},
 
 
-
-
-
-
-	-- BANKS
-
-
+	--BANKS
 
 	["East Hawick Flecca Bank Vault"]={name="East Hawick Flecca Bank Vault",
 	currentMoney=10000,
@@ -569,6 +573,7 @@ RegisterServerEvent("robberies:policeCheck")
 AddEventHandler("robberies:policeCheck", function()
 	TriggerEvent('es:getPlayers', function(players)
 		local nbPolice = 0
+				
 		for i,p in pairs(players) do
 			if p.getSessionVar('policeInService') == true then
 				nbPolice = nbPolice + 1
