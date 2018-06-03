@@ -1,7 +1,4 @@
 --[[ Layout
-
-
-
 	["Name"]={name="Name",
 	currentMoney=500, -- starting money
 	maxMoney=5000, -- maximum money the store can hold
@@ -10,8 +7,14 @@
 	isBank=false, -- is the place a bank
 	bankToDeliverToo="Legion Flecca Bank Vault", -- what bank to deliver to if the takesMoenyToBank is true
 	},
-
 ]]
+
+ESX = nil
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+function get3DDistance(x1, y1, z1, x2, y2, z2)
+	return math.sqrt(math.pow(x1 - x2, 2) + math.pow(y1 - y2, 2) + math.pow(z1 - z2, 2))
+end
+
 robbableSpots = {
 	["Little Seoul 24/7 Register #1"]={name="Little Seoul 24/7 Register #1",
 	currentMoney=500,
@@ -538,23 +541,33 @@ AddEventHandler("robberies:robberyOver", function(name)
 	end)
 end)
 
+--updated esx_policejob
 RegisterServerEvent("robberies:robberyOverNotification")
 AddEventHandler("robberies:robberyOverNotification", function(name)
+local source = source
+local xPlayers = ESX.GetPlayers()
+local xPlayer = ESX.GetPlayerFromId(source)
 	TriggerEvent('es:getPlayers', function(players)
-		for i,p in pairs(players) do
-			if p.getSessionVar('policeInService') == true then
+			for i=1, #xPlayers, 1 do
+ 				local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
+ 				if xPlayer.job.name == 'police' then
 				TriggerClientEvent("robberies:robberyOverNotification",i, name)
 			end
 		end
 	end)
 end)
 
+--updated esx_policejob
 RegisterServerEvent("robberies:robberyStartedNotification")
 AddEventHandler("robberies:robberyStartedNotification", function(name)
+local source = source
+local xPlayers = ESX.GetPlayers()
+local xPlayer = ESX.GetPlayerFromId(source)
 	TriggerEvent('es:getPlayers', function(players)
-		for i,p in pairs(players) do
-			if p.getSessionVar('policeInService') == true then
-				TriggerClientEvent("robberies:robberyStartedNotification", i, name)
+			for i=1, #xPlayers, 1 do
+ 				local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
+ 				if xPlayer.job.name == 'police' then
+				TriggerClientEvent("robberies:robberyStartedNotification", i, name)	
 			end
 		end
 	end)
@@ -565,15 +578,20 @@ AddEventHandler("robberies:syncSpots", function(spots)
 	TriggerClientEvent("robberies:syncSpotsClient", -1, spots)
 end)
 
+--updated esx_policejob
 RegisterServerEvent("robberies:policeCheck")
 AddEventHandler("robberies:policeCheck", function()
+local source = source
+local xPlayers = ESX.GetPlayers()
+local xPlayer = ESX.GetPlayerFromId(source)
 	TriggerEvent('es:getPlayers', function(players)
-		local nbPolice = 0
-		for i,p in pairs(players) do
-			if p.getSessionVar('policeInService') == true then
-				nbPolice = nbPolice + 1
+		local cops = 0
+		for i=1, #xPlayers, 1 do
+ 		local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
+ 		if xPlayer.job.name == 'police' then
+				cops = cops + 1
 			end
 		end
-		TriggerClientEvent("robberies:StartRobbery", source, nbPolice)
+		TriggerClientEvent("robberies:StartRobbery", source, cops)
 	end)
 end)
